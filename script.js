@@ -107,8 +107,6 @@ const contactSubmit = document.querySelector("[data-contact-submit]");
 
 if (contactForm && contactStatus && contactSubmit) {
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  const contactEndpoint = contactForm.dataset.contactEndpoint || "https://api.web3forms.com/submit";
-
   const setContactStatus = (message, type = "") => {
     contactStatus.textContent = message;
     contactStatus.className = `form-status ${type}`.trim();
@@ -152,22 +150,16 @@ if (contactForm && contactStatus && contactSubmit) {
     setContactStatus("Sending message...");
 
     try {
-      const response = await fetch(contactEndpoint, {
+      formData.set("name", payload.name);
+      formData.set("email", payload.email);
+      formData.set("company", payload.company);
+      formData.set("subject", payload.subject);
+      formData.set("message", payload.message);
+      formData.set("from_name", payload.from_name || "Samuel Webster Portfolio");
+
+      const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          access_key: payload.access_key,
-          from_name: payload.from_name || "Samuel Webster Portfolio",
-          name: payload.name,
-          email: payload.email,
-          company: payload.company,
-          subject: payload.subject,
-          message: payload.message,
-          website: payload.website,
-        }),
+        body: formData,
       });
 
       const result = await response.json().catch(() => ({}));
