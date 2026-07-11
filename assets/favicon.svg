@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="SW">
+  <defs>
+    <linearGradient id="mark" x1="8" y1="8" x2="56" y2="56" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#164e4a"/>
+      <stop offset="1" stop-color="#0b2534"/>
+    </linearGradient>
+  </defs>
+  <rect x="5" y="5" width="54" height="54" rx="10" fill="url(#mark)" stroke="#2dd4bf" stroke-width="3"/>
+  <text x="32" y="39" text-anchor="middle" fill="#2dd4bf" font-family="Consolas, 'JetBrains Mono', monospace" font-size="22" font-weight="700">SW</text>
+</svg>

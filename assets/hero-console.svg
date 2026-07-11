@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="720" viewBox="0 0 1100 720" role="img" aria-labelledby="title desc">
+  <title id="title">Cybersecurity dashboard illustration</title>
+  <desc id="desc">Dark terminal-inspired dashboard panels with network nodes, log lines, and security signals.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#08111f"/>
+      <stop offset="0.55" stop-color="#071926"/>
+      <stop offset="1" stop-color="#06100e"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#12243a"/>
+      <stop offset="1" stop-color="#07131f"/>
+    </linearGradient>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="1100" height="720" rx="36" fill="url(#bg)"/>
+  <g opacity="0.24" stroke="#2dd4bf" stroke-width="1">
+    <path d="M0 86H1100M0 172H1100M0 258H1100M0 344H1100M0 430H1100M0 516H1100M0 602H1100"/>
+    <path d="M92 0V720M184 0V720M276 0V720M368 0V720M460 0V720M552 0V720M644 0V720M736 0V720M828 0V720M920 0V720M1012 0V720"/>
+  </g>
+  <g transform="translate(82 80)">
+    <rect width="936" height="560" rx="22" fill="#050b12" stroke="#20384d" stroke-width="2"/>
+    <rect x="1" y="1" width="934" height="58" rx="22" fill="#0d1928"/>
+    <circle cx="34" cy="30" r="7" fill="#ef4444"/>
+    <circle cx="58" cy="30" r="7" fill="#f59e0b"/>
+    <circle cx="82" cy="30" r="7" fill="#22c55e"/>
+    <text x="122" y="37" fill="#8fd8ca" font-family="Consolas, monospace" font-size="18">samuel-webster :: portfolio-console</text>
+    <g transform="translate(36 92)">
+      <rect width="408" height="196" rx="16" fill="url(#panel)" stroke="#2a4b63"/>
+      <text x="24" y="38" fill="#2dd4bf" font-family="Consolas, monospace" font-size="18">$ run status --service-desk</text>
+      <text x="24" y="78" fill="#d7e3ea" font-family="Consolas, monospace" font-size="17">AD account checks .......... OK</text>
+      <text x="24" y="112" fill="#d7e3ea" font-family="Consolas, monospace" font-size="17">M365 auth review ........... OK</text>
+      <text x="24" y="146" fill="#d7e3ea" font-family="Consolas, monospace" font-size="17">Endpoint triage ............ READY</text>
+      <rect x="24" y="166" width="314" height="8" rx="4" fill="#13263a"/>
+      <rect x="24" y="166" width="248" height="8" rx="4" fill="#2dd4bf" opacity="0.9"/>
+    </g>
+    <g transform="translate(492 92)">
+      <rect width="372" height="196" rx="16" fill="url(#panel)" stroke="#2a4b63"/>
+      <text x="24" y="38" fill="#7dd3fc" font-family="Consolas, monospace" font-size="18">network lab map</text>
+      <g stroke="#2dd4bf" stroke-width="2" opacity="0.85">
+        <path d="M80 110H182M182 110L258 70M182 110L268 148"/>
+      </g>
+      <g filter="url(#glow)">
+        <circle cx="80" cy="110" r="20" fill="#0f766e"/>
+        <circle cx="182" cy="110" r="24" fill="#2563eb"/>
+        <circle cx="258" cy="70" r="18" fill="#14b8a6"/>
+        <circle cx="268" cy="148" r="18" fill="#14b8a6"/>
+      </g>
+      <text x="52" y="158" fill="#d7e3ea" font-family="Consolas, monospace" font-size="13">pfSense</text>
+      <text x="148" y="158" fill="#d7e3ea" font-family="Consolas, monospace" font-size="13">SOC</text>
+      <text x="226" y="44" fill="#d7e3ea" font-family="Consolas, monospace" font-size="13">AD</text>
+      <text x="238" y="184" fill="#d7e3ea" font-family="Consolas, monospace" font-size="13">Sysmon</text>
+    </g>
+    <g transform="translate(36 326)">
+      <rect width="828" height="170" rx="16" fill="url(#panel)" stroke="#2a4b63"/>
+      <text x="24" y="38" fill="#2dd4bf" font-family="Consolas, monospace" font-size="18">latest lab notes</text>
+      <text x="24" y="78" fill="#d7e3ea" font-family="Consolas, monospace" font-size="17">[cloud] honeypot baseline configured on EC2</text>
+      <text x="24" y="112" fill="#d7e3ea" font-family="Consolas, monospace" font-size="17">[malware] dynamic and static review workflow</text>
+      <text x="24" y="146" fill="#d7e3ea" font-family="Consolas, monospace" font-size="17">[helpdesk] account lockout simulation resolved</text>
+      <rect x="638" y="38" width="150" height="90" rx="10" fill="#07131f" stroke="#1f8f82"/>
+      <path d="M666 100l31-31 22 22 38-44" fill="none" stroke="#2dd4bf" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+  </g>
+</svg>
