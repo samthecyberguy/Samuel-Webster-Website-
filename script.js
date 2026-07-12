@@ -116,16 +116,11 @@ if (contactForm && contactStatus && contactSubmit) {
     event.preventDefault();
 
     const formData = new FormData(contactForm);
-    const payload = {
-      access_key: String(formData.get("access_key") || "").trim(),
-      from_name: String(formData.get("from_name") || "").trim(),
-      name: String(formData.get("name") || "").trim(),
-      email: String(formData.get("email") || "").trim(),
-      company: String(formData.get("company") || "").trim(),
-      subject: String(formData.get("subject") || "").trim(),
-      message: String(formData.get("message") || "").trim(),
-      website: String(formData.get("website") || "").trim(),
-    };
+    const payload = Object.fromEntries(formData.entries());
+
+    Object.keys(payload).forEach((key) => {
+      payload[key] = String(payload[key] || "").trim();
+    });
 
     const requiredFields = ["name", "email", "subject", "message"];
     const missingField = requiredFields.find((field) => !payload[field]);
@@ -145,33 +140,42 @@ if (contactForm && contactStatus && contactSubmit) {
       return;
     }
 
+    if (payload.website) {
+      contactForm.reset();
+      setContactStatus("Message sent successfully. Thanks for reaching out!", "success");
+      return;
+    }
+
     contactSubmit.disabled = true;
     contactSubmit.textContent = "Submitting...";
     setContactStatus("Sending message...");
 
     try {
-      formData.set("name", payload.name);
-      formData.set("email", payload.email);
-      formData.set("company", payload.company);
-      formData.set("subject", payload.subject);
-      formData.set("message", payload.message);
-      formData.set("from_name", payload.from_name || "Samuel Webster Portfolio");
+      payload.from_name = payload.from_name || "Samuel Webster Portfolio";
 
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        body: formData,
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(payload),
       });
 
       const result = await response.json().catch(() => ({}));
 
       if (!response.ok || result.success === false) {
-        throw new Error(result.message || result.error || "Message could not be sent. Please try again.");
+        throw new Error(result.message || result.error || "Web3Forms returned an error. Please try again.");
       }
 
       contactForm.reset();
       setContactStatus("Message sent successfully. Thanks for reaching out!", "success");
     } catch (error) {
-      setContactStatus(error.message || "Message could not be sent. Please try again.", "error");
+      if (error instanceof TypeError) {
+        setContactStatus("Network error: the message could not be sent. Please check your connection and try again.", "error");
+      } else {
+        setContactStatus(`API error: ${error.message || "Message could not be sent. Please try again."}`, "error");
+      }
     } finally {
       contactSubmit.disabled = false;
       contactSubmit.textContent = "Submit";
