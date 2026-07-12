@@ -243,10 +243,11 @@
         <a href="mailto:samthecyberguy@protonmail.com">Email <span>samthecyberguy@protonmail.com</span></a>
         <a href="https://samthecyberguy.blogspot.com/" target="_blank" rel="noopener">Blog <span>samthecyberguy.blogspot.com</span></a>
       </div>
-      <form class="contact-form" data-contact-form data-contact-endpoint="https://api.web3forms.com/submit" novalidate>
-        <!-- Demonstrates REST API form submission using a JSON POST request. -->
+      <form id="contact-form" action="https://api.web3forms.com/submit" method="POST">
         <input type="hidden" name="access_key" value="55e2f08d-09cb-45c2-a583-499214f3248a">
         <input type="hidden" name="from_name" value="Samuel Webster Portfolio">
+        <input type="hidden" name="redirect" value="https://samuelwebster.tech/thank-you.html">
+        <input type="checkbox" name="botcheck" style="display:none">
         <div class="form-field honeypot-field" aria-hidden="true">
           <label for="contact-website">Website</label>
           <input id="contact-website" name="website" type="text" tabindex="-1" autocomplete="off">
