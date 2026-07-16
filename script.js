@@ -40,6 +40,14 @@ const projectOpen = document.querySelector(".doc-open");
 if (docImage && docCurrent && docTotal && docPrev && docNext && projectNext && projectTitle && projectOpen) {
   const projects = [
     {
+      title: "Troubleshooting a Broken Web3Forms Contact Form API Submission",
+      folder: "assets/docs/web3forms-troubleshooting-pages",
+      prefix: "web3forms-troubleshooting-page",
+      pdf: "assets/docs/web3forms-contact-form-api-troubleshooting.pdf",
+      pages: 11,
+      alt: "Web3Forms contact form API troubleshooting PDF page",
+    },
+    {
       title: "Project 22 Bee Street: Phase 1 - Cloud Honeypot Foundation",
       folder: "assets/docs/p22bs-pages",
       prefix: "p22bs-phase-1-page",
