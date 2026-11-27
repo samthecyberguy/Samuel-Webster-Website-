@@ -75,12 +75,16 @@ img {
   align-items: center;
   justify-content: space-between;
   gap: 24px;
+  flex-wrap: wrap;
+  row-gap: 8px;
+  padding: 12px 0;
 }
 
 .brand {
   display: inline-flex;
   align-items: center;
   gap: 12px;
+  flex-shrink: 0;
 }
 
 .brand-mark {
@@ -113,6 +117,8 @@ img {
 
 .nav-links {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   align-items: center;
   gap: 18px;
   color: #c9d6e2;
@@ -121,6 +127,7 @@ img {
 
 .nav-links a {
   padding: 8px 0;
+  white-space: nowrap;
 }
 
 .nav-links a:hover {
@@ -1122,6 +1129,11 @@ h1 {
 .apiary-problems {
   margin: 0;
   padding-left: 22px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: repeat(5, auto);
+  grid-auto-flow: column;
+  column-gap: 48px;
 }
 
 .apiary-problems li {
@@ -1191,6 +1203,15 @@ h1 {
 }
 
 @media (max-width: 760px) {
+  .nav-shell {
+    flex-wrap: nowrap;
+    padding: 0;
+  }
+  .apiary-problems {
+    grid-template-columns: 1fr;
+    grid-template-rows: none;
+    grid-auto-flow: row;
+  }
   .apiary-hero h1 {
     font-size: 2.4rem;
   }
